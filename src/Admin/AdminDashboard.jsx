@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import config from "../../Config";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function AdminDashboard() {
       setLoading(true);
 
       const res = await axios.get(
-        `http://localhost:5000/dashboard?month=${month}`
+        `${config.url}/dashboard?month=${month}`
       );
 
       setData(res.data);

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import config from "../../Config";
 
 export default function CsvUploadPage() {
   const [file, setFile] = useState(null);
@@ -13,8 +14,8 @@ export default function CsvUploadPage() {
 
   const pollTimerRef = useRef(null);
 
-  const API_UPLOAD = "http://localhost:5000/uploadreports";
-  const API_JOB_STATUS = (id) => `http://localhost:5000/job-status/${id}`;
+  const API_UPLOAD = `${config.url}/uploadreports`;
+const API_JOB_STATUS = (id) => `${config.url}/job-status/${id}`;
 
   const handleFileChange = (e) => {
     const selected = e.target.files?.[0];

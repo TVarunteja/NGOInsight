@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import config from "../../Config";
 
 export default function ReportForm() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ export default function ReportForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/insertreport",
+        `${config.url}/insertreport`,
         {
           ngo_id: formData.ngo_id,
           month: formData.month,
